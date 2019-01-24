@@ -9,7 +9,7 @@ output:
 
 ## Loading and preprocessing the data
 The project data may currentry exist in the working directory (in a -zip.file or already unzipped). The following code checks if the *activity.csv* file already exist, if it doesn't, checks the existence of *activity.zip* file and upzips it. If there is neither *activity.csv* nor *activity.zip* the archive *activity.zip* will be downloded from the project resource and unzipped.  
-As soon as the data file existence is confirmed, the data is loaded into **act_data** variable. The class of the varaible will be "data.frame" class.
+As soon as the data file existence is confirmed, the data is loaded into **act_data** variable. The class of the varaible will be of "data.frame" class.
 
 ```r
 dataURL <- "https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2Factivity.zip"
@@ -22,7 +22,7 @@ act_data <- read.csv("activity.csv")
 }  
 ```
 ## What is mean total number of steps taken per day?
-For analyse the total number of steps per date we should group and summarize the data first. In the following code the functions of "dplyr" library are used for this purpose.
+For analyse the total number of steps per date we should group and summarize the data first. In the following code the functions of **dplyr** library are used for this purpose.
 
 ```r
 library(dplyr)
@@ -30,7 +30,7 @@ act_data_sum <- act_data %>%
     group_by(date) %>% 
     summarize(sum=sum(steps, na.rm = TRUE))
 ```
-As soon as we have the data prepared for analyse, we can build a historgam that shows the distribution of the total spets per day. There is a code that build a histogram by means of Basic plotting system and saves the histogram in a "figure" folder as .png file.
+As soon as we have the data prepared for analyse, we can build a historgam that shows the distribution of the total spets per day. There is a code that build a histogram by means of Basic plotting system.
 
 ```r
 library(grDevices)
@@ -44,12 +44,7 @@ hist(act_data_sum$sum,
      ylim =c(0, 25))
 ```
 
-![](PA1_template_files/figure-html/totapstepshist-1.png)<!-- -->
-
-```r
-invisible(dev.copy(png, filename="./figure/plot1.png"))
-invisible(dev.off ())
-```
+![plot of chunk totapstepshist](figure/totapstepshist-1.png)
 Having the agregated values in variable **act_data_sum** we can calculate the mean and median of total number of steps per day:  
 The **mean** can be get by the following expression:
 
@@ -89,12 +84,7 @@ plot(act_data_time$interval, act_data_time$avg,
      ylab = "avg number of steps per 5-min interval")
 ```
 
-![](PA1_template_files/figure-html/patternplot-1.png)<!-- -->
-
-```r
-invisible(dev.copy(png, filename="./figure/plot2.png"))
-invisible(dev.off ())
-```
+![plot of chunk patternplot](figure/patternplot-1.png)
 The number of 5-min interval that contains, in average, the maximum number of steps can be found by the following way:
 
 ```r
@@ -140,12 +130,7 @@ hist(act_data_imp_sum$sum,
      ylim =c(0, 25))
 ```
 
-![](PA1_template_files/figure-html/impdataanalysis-1.png)<!-- -->
-
-```r
-invisible(dev.copy(png, filename="./figure/plot3.png"))
-invisible(dev.off ())
-```
+![plot of chunk impdataanalysis](figure/impdataanalysis-1.png)
 
 We can also calculate the mean and median of total number of steps per day in imputated data:  
 The **mean** can be get by the following expression:
@@ -212,11 +197,9 @@ with(act_data_imp_we,
          ylim = c(0, 250)))
 ```
 
-![](PA1_template_files/figure-html/comparepatterns-1.png)<!-- -->
+![plot of chunk comparepatterns](figure/comparepatterns-1.png)
 
 ```r
 par(mfrow = c(1, 1))
-invisible(dev.copy(png, filename="./figure/plot4.png"))
-invisible(dev.off ())
 ```
 We can see by these plots that the weekend activity in more regular than the weekday activity (it doesn't have one high extremum that weekdays have). The average activity of daytime (intervals 1000 - 1500) is higher in the weekends that in the weekdays.
