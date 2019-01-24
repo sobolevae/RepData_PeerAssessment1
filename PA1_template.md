@@ -44,7 +44,7 @@ hist(act_data_sum$sum,
      ylim =c(0, 25))
 ```
 
-![plot of chunk totapstepshist](figure/totapstepshist-1.png)
+![](PA1_template_files/figure-html/totapstepshist-1.png)<!-- -->
 Having the agregated values in variable **act_data_sum** we can calculate the mean and median of total number of steps per day:  
 The **mean** can be get by the following expression:
 
@@ -84,7 +84,7 @@ plot(act_data_time$interval, act_data_time$avg,
      ylab = "avg number of steps per 5-min interval")
 ```
 
-![plot of chunk patternplot](figure/patternplot-1.png)
+![](PA1_template_files/figure-html/patternplot-1.png)<!-- -->
 The number of 5-min interval that contains, in average, the maximum number of steps can be found by the following way:
 
 ```r
@@ -130,7 +130,7 @@ hist(act_data_imp_sum$sum,
      ylim =c(0, 25))
 ```
 
-![plot of chunk impdataanalysis](figure/impdataanalysis-1.png)
+![](PA1_template_files/figure-html/impdataanalysis-1.png)<!-- -->
 
 We can also calculate the mean and median of total number of steps per day in imputated data:  
 The **mean** can be get by the following expression:
@@ -197,7 +197,7 @@ with(act_data_imp_we,
          ylim = c(0, 250)))
 ```
 
-![plot of chunk comparepatterns](figure/comparepatterns-1.png)
+![](PA1_template_files/figure-html/comparepatterns-1.png)<!-- -->
 
 ```r
 par(mfrow = c(1, 1))
