@@ -159,3 +159,5 @@ with(act_data_imp_we,
 ```
 
 We can see by these plots that the weekend activity in more regular than the weekday activity (it doesn't have one high extremum that weekdays have). The average activity of daytime (intervals 1000 - 1500) is higher in the weekends that in the weekdays.
+
+
