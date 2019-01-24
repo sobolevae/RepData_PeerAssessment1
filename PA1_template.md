@@ -9,7 +9,7 @@ output:
 
 ## Loading and preprocessing the data
 The project data may currentry exist in the working directory (in a -zip.file or already unzipped). The following code checks if the *activity.csv* file already exist, if it doesn't, checks the existence of *activity.zip* file and upzips it. If there is neither *activity.csv* nor *activity.zip* the archive *activity.zip* will be downloded from the project resource and unzipped.  
-As soon as the data file existence is confirmed, the data is loaded into **act_data** variable. The class of the varaible will be of "data.frame" class.
+As soon as the data file existence is confirmed, the data is loaded into **act_data** variable. The class of the varaible will be of "data.frame" class.  
 
 ```r
 dataURL <- "https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2Factivity.zip"
@@ -30,7 +30,7 @@ act_data_sum <- act_data %>%
     group_by(date) %>% 
     summarize(sum=sum(steps, na.rm = TRUE))
 ```
-As soon as we have the data prepared for analyse, we can build a historgam that shows the distribution of the total spets per day. There is a code that build a histogram by means of Basic plotting system.
+As soon as we have the data prepared for analyse, we can build a historgam that shows the distribution of the total spets per day. There is a code that build a histogram by means of Basic plotting system.  
 
 ```r
 library(grDevices)
@@ -45,6 +45,7 @@ hist(act_data_sum$sum,
 ```
 
 ![](PA1_template_files/figure-html/totapstepshist-1.png)<!-- -->
+
 Having the agregated values in variable **act_data_sum** we can calculate the mean and median of total number of steps per day:  
 The **mean** can be get by the following expression:
 
@@ -73,7 +74,7 @@ act_data_time <- act_data %>%
     group_by(interval) %>% 
     summarize(avg=mean(steps, na.rm = TRUE))
 ```
-As soon as we have the data prepared for analyse we can make a plot that shows the average pattern of daily activity:
+As soon as we have the data prepared for analyse we can make a plot that shows the average pattern of daily activity:  
 
 ```r
 plot(act_data_time$interval, act_data_time$avg, 
@@ -85,6 +86,7 @@ plot(act_data_time$interval, act_data_time$avg,
 ```
 
 ![](PA1_template_files/figure-html/patternplot-1.png)<!-- -->
+
 The number of 5-min interval that contains, in average, the maximum number of steps can be found by the following way:
 
 ```r
@@ -199,7 +201,4 @@ with(act_data_imp_we,
 
 ![](PA1_template_files/figure-html/comparepatterns-1.png)<!-- -->
 
-```r
-par(mfrow = c(1, 1))
-```
 We can see by these plots that the weekend activity in more regular than the weekday activity (it doesn't have one high extremum that weekdays have). The average activity of daytime (intervals 1000 - 1500) is higher in the weekends that in the weekdays.
