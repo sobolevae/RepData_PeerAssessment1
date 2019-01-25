@@ -1,8 +1,23 @@
 ---
-title: "Reproducible Research: Peer Assessment 1"
-output: 
-  html_document:
-    keep_md: true
+title: "Reproducible Research Project 1"
+
+author: "Ekaterina Soboleva"
+
+date: "January 25, 2019"
+
+output:
+
+html_document:
+
+fig_caption: yes
+
+keep_md: yes
+
+toc: yes
+
+pdf_document: default
+
+self_contained: no
 ---
 
 
@@ -44,7 +59,7 @@ hist(act_data_sum$sum,
      ylim =c(0, 25))
 ```
 
-![](PA1_template_files/figure-html/totapstepshist-1.png)<!-- -->
+![plot of chunk totapstepshist](figure/totapstepshist-1.png)
 
 Having the agregated values in variable **act_data_sum** we can calculate the mean and median of total number of steps per day:  
 The **mean** can be get by the following expression:
@@ -85,7 +100,7 @@ plot(act_data_time$interval, act_data_time$avg,
      ylab = "avg number of steps per 5-min interval")
 ```
 
-![](PA1_template_files/figure-html/patternplot-1.png)<!-- -->
+![plot of chunk patternplot](figure/patternplot-1.png)
 
 The number of 5-min interval that contains, in average, the maximum number of steps can be found by the following way:
 
@@ -132,7 +147,7 @@ hist(act_data_imp_sum$sum,
      ylim =c(0, 25))
 ```
 
-![](PA1_template_files/figure-html/impdataanalysis-1.png)<!-- -->
+![plot of chunk impdataanalysis](figure/impdataanalysis-1.png)
 
 We can also calculate the mean and median of total number of steps per day in imputated data:  
 The **mean** can be get by the following expression:
@@ -164,20 +179,6 @@ Here the functions of **lubridate** library have been used to add a new variable
 
 ```r
 library(lubridate)
-```
-
-```
-## 
-## Attaching package: 'lubridate'
-```
-
-```
-## The following object is masked from 'package:base':
-## 
-##     date
-```
-
-```r
 act_data_imp <- act_data_imp %>% 
     mutate(is.weekday = 
       ifelse((wday(as_date(date)) == 1) | (wday(as_date(date)) == 7), "weekend", "weekday"))
@@ -213,7 +214,7 @@ with(act_data_imp_we,
          ylim = c(0, 250)))
 ```
 
-![](PA1_template_files/figure-html/comparepatterns-1.png)<!-- -->
+![plot of chunk comparepatterns](figure/comparepatterns-1.png)
 
 We can see by these plots that the weekend activity in more regular than the weekday activity (it doesn't have one high extremum that weekdays have). The average activity of daytime (intervals 1000 - 1500) is higher in the weekends that in the weekdays.
 
