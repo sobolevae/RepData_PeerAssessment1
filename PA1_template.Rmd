@@ -1,8 +1,23 @@
 ---
-title: "Reproducible Research: Peer Assessment 1"
-output: 
-  html_document:
-    keep_md: true
+title: "Reproducible Research Project 1"
+
+author: "Ekaterina Soboleva"
+
+date: "January 25, 2019"
+
+output:
+
+html_document:
+
+fig_caption: yes
+
+keep_md: yes
+
+toc: yes
+
+pdf_document: default
+
+self_contained: no
 ---
 
 ```{r global_options, include=FALSE}
