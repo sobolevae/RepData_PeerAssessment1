@@ -164,6 +164,20 @@ Here the functions of **lubridate** library have been used to add a new variable
 
 ```r
 library(lubridate)
+```
+
+```
+## 
+## Attaching package: 'lubridate'
+```
+
+```
+## The following object is masked from 'package:base':
+## 
+##     date
+```
+
+```r
 act_data_imp <- act_data_imp %>% 
     mutate(is.weekday = 
       ifelse((wday(as_date(date)) == 1) | (wday(as_date(date)) == 7), "weekend", "weekday"))
@@ -202,3 +216,5 @@ with(act_data_imp_we,
 ![](PA1_template_files/figure-html/comparepatterns-1.png)<!-- -->
 
 We can see by these plots that the weekend activity in more regular than the weekday activity (it doesn't have one high extremum that weekdays have). The average activity of daytime (intervals 1000 - 1500) is higher in the weekends that in the weekdays.
+
+

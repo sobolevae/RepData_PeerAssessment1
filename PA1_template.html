@@ -286,8 +286,13 @@ All these effects could be explanied by the choosen strategy of imputation - usi
 <div id="are-there-differences-in-activity-patterns-between-weekdays-and-weekends" class="section level2">
 <h2>Are there differences in activity patterns between weekdays and weekends?</h2>
 <p>Here the functions of <strong>lubridate</strong> library have been used to add a new variable <strong>is.weekday</strong> to the data set with imputated values:</p>
-<pre class="r"><code>library(lubridate)
-act_data_imp &lt;- act_data_imp %&gt;% 
+<pre class="r"><code>library(lubridate)</code></pre>
+<pre><code>## 
+## Attaching package: 'lubridate'</code></pre>
+<pre><code>## The following object is masked from 'package:base':
+## 
+##     date</code></pre>
+<pre class="r"><code>act_data_imp &lt;- act_data_imp %&gt;% 
     mutate(is.weekday = 
       ifelse((wday(as_date(date)) == 1) | (wday(as_date(date)) == 7), &quot;weekend&quot;, &quot;weekday&quot;))</code></pre>
 <p>This code gets two datasets, one for weekdays and the other for weekends, groups and summarizes their data and makes the plots.</p>

@@ -7,7 +7,7 @@ output:
 
 ```{r global_options, include=FALSE}
 library(knitr)
-opts_knit$set(progress = FALSE, verbose = TRUE)
+opts_knit$set(progress = FALSE, verbose = TRUE, fig.path='figure/')
 ```
 
 ## Loading and preprocessing the data
